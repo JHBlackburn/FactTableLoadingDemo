@@ -1,3 +1,5 @@
+SET NOCOUNT ON;
+
 DECLARE @dayFromStart int = 0
 DECLARE @date date;
 DECLARE @dateId int;
@@ -6,17 +8,15 @@ DECLARE @monthId int;
 DECLARE @dayId int;
 
 
+truncate table dbo.DimDate
 
 While @dayFromStart <= 1000
 	BEGIN
 		SET @date = DATEADD(DAY, @dayFromStart, cast('2000-01-01' as date))
 		SET @yearId = CAST(DATEPART(YEAR, @date)  as int)
-		SET @monthId = CAST(DATEPART(YEAR, @date)  as int)
-		SET @dayId = CAST(DATEPART(YEAR, @date)  as int)
-		SET @dateId = CAST(CONCAT(CAST(@yearId as varchar(4))
-						, CAST(@monthId as varchar(2))
-						, CAST(@dayId as varchar(2) )
-						) as int)
+		SET @monthId = CAST(DATEPART(MONTH, @date)  as int)
+		SET @dayId = CAST(DATEPART(DAY, @date)  as int)
+		SET @dateId = 10000 * @yearId + 100 * @monthId + @dayId
 
 
 		INSERT INTO dbo.DimDate (
@@ -25,16 +25,16 @@ While @dayFromStart <= 1000
 		, [Year]
 		, [Month]
 		, [Day])
+
 		SELECT 
 		DateID = @dateId
-		,[Date] = @date
-		,[Year] = @yearId
+		, [Date] = @date
+		, [Year] = @yearId
 		, [Month] = @monthId
 		, [Day] = @dayId 
 
 		SET @dayFromStart = @dayFromStart + 1;
-		print @dayFromStart
+
 END
 
 
-SELECT * FROM dbo.DimDate
