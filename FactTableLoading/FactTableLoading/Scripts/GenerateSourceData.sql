@@ -48,7 +48,6 @@ MERGE dbo.DimBillingType AS T
 WHEN NOT MATCHED THEN  
     INSERT (BillingTypeName)  
     VALUES (S.BillingTypeName)  
-    OUTPUT deleted.*, $action, inserted.* ;  
 
 
 
@@ -61,8 +60,6 @@ MERGE dbo.DimAccount AS T
 WHEN NOT MATCHED THEN  
     INSERT (NaturalAccountId)  
     VALUES (S.AccountNumber)  
-    OUTPUT deleted.*, $action, inserted.* ;  
-
 
 	
 DECLARE @theDate date = @startDate;
