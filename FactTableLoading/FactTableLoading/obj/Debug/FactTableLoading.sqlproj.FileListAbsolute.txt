@@ -1,0 +1,6 @@
+C:\git\FactTableLoadingDemo\FactTableLoading\FactTableLoading\bin\Debug\FactTableLoading.dacpac
+C:\git\FactTableLoadingDemo\FactTableLoading\FactTableLoading\obj\Debug\FactTableLoading.sqlprojAssemblyReference.cache
+C:\git\FactTableLoadingDemo\FactTableLoading\FactTableLoading\obj\Debug\FactTableLoading.dll
+C:\git\FactTableLoadingDemo\FactTableLoading\FactTableLoading\obj\Debug\FactTableLoading.pdb
+C:\git\FactTableLoadingDemo\FactTableLoading\FactTableLoading\bin\Debug\FactTableLoading.dll
+C:\git\FactTableLoadingDemo\FactTableLoading\FactTableLoading\bin\Debug\FactTableLoading.pdb
