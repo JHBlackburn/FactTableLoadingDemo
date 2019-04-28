@@ -81,9 +81,4 @@ BEGIN
 				, DATEPART(DAY, @startDate));
 
 	SET @theDate = DateAdd(DAY, 1, @theDate);	
-END;
-
-
-
-SELECT * FROM dbo.DimDate
-ORDER BY DateID
+END;	
