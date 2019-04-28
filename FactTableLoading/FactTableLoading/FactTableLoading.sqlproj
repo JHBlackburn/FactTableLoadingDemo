@@ -62,6 +62,10 @@
     <Folder Include="Tables\OLTP" />
     <Folder Include="Tables\Stage" />
     <Folder Include="Schemas" />
+    <Folder Include="Procs" />
+    <Folder Include="Procs\Stage" />
+    <Folder Include="Tables\Metric" />
+    <Folder Include="Procs\Metric" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\dbo\DimDate.sql" />
@@ -72,5 +76,10 @@
     <Build Include="Tables\dbo\DimAccount.sql" />
     <Build Include="Tables\dbo\DimBillingType.sql" />
     <Build Include="Schemas\Stage.sql" />
+    <Build Include="Schemas\Metric.sql" />
+    <Build Include="Procs\Stage\uspFactAccountBillingType.sql" />
+    <Build Include="Schemas\StartUp.sql" />
+    <Build Include="Tables\Metric\TableRowCount.sql" />
+    <Build Include="Procs\Metric\uspPollRowCount_FactAccountBillingType.sql" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,7 @@
+﻿CREATE TABLE Metric.TableRowCount
+(
+	TableRowCountId INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	TableName VARCHAR(100) NOT NULL,
+	[DateTime] DateTime NOT NULL DEFAULT GETDATE() ,
+	Count_Rows INT NOT NULL
+)
