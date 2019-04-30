@@ -1,4 +1,6 @@
 CREATE PROCEDURE Metric.uspInsertNewRun
+				@runTitle VARCHAR(200)
+				, @runNotes VARCHAR(MAX)
 
 
 AS BEGIN
@@ -15,11 +17,11 @@ DECLARE @runId TABLE (RunId INT)
 
 	VALUES
 	(
-	'TestingSetup_001'
-	, Null
+	@runTitle
+	, @runNotes
 	)
 
-	SELECT RunID FROM @runId
+	SELECT TOP 1 RunID FROM @runId;
 
 END
 

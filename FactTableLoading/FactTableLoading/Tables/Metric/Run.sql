@@ -1,7 +1,8 @@
 CREATE TABLE Metric.Run
 	(
 		RunId INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-		StartDT dateTime NOT NULL DEFAULT(GETDATE()),
+		StartDT DateTime NOT NULL DEFAULT(GETDATE()),
+		EndDT DateTime NULL,
 		RunTitle VARCHAR(200) NOT NULL,
 		RunNotes VARCHAR(max) NULL
 	)

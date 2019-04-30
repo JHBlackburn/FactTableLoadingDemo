@@ -67,9 +67,6 @@
     <Folder Include="Tables\Metric" />
     <Folder Include="Procs\Metric" />
     <Folder Include="Procs\StartUp" />
-    <Folder Include="Security" />
-    <Folder Include="Security\Logins" />
-    <Folder Include="Security\Users" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\dbo\DimDate.sql" />
@@ -85,7 +82,7 @@
     <Build Include="Schemas\StartUp.sql" />
     <Build Include="Tables\Metric\TableRowCount.sql" />
     <Build Include="Procs\Metric\uspPollRowCount_FactAccountBillingType.sql" />
-    <Build Include="Security\Logins\Login_FactTableLoading_SSIS_Admin.sql" />
-    <Build Include="Security\Users\User_FactTableLoading_SSIS_Admin.sql" />
+    <Build Include="Procs\Metric\uspInsertNewRun.sql" />
+    <Build Include="Tables\Metric\Run.sql" />
   </ItemGroup>
 </Project>

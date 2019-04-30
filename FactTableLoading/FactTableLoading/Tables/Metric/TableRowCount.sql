@@ -1,7 +1,8 @@
-﻿CREATE TABLE Metric.TableRowCount
+﻿	CREATE TABLE Metric.TableRowCount
 (
 	TableRowCountId INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	TableName VARCHAR(100) NOT NULL,
 	[DateTime] DateTime NOT NULL DEFAULT GETDATE() ,
+	RunId Int NOT NULL FOREIGN KEY REFERENCES Metric.Run(RunId),
 	Count_Rows INT NOT NULL
 )

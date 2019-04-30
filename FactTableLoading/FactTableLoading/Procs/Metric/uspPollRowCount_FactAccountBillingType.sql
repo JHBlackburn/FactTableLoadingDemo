@@ -1,31 +1,41 @@
 CREATE PROCEDURE Metric.uspPollRowCount_FactAccountBillingType
+			@runId INT,
+			@waitIntervalInSeconds INT,
+			@pollForThisManySeconds INT
+
+
 
 AS BEGIN
 SET NOCOUNT ON
 
-INSERT INTO Metric.TableRowCount
-		(
-		TableName
-		, Count_Rows
-		)
+DECLARE @startDateTime DATETIME = GETDATE();
+DECLARE @waitTimeInSecondsFormatted varchar(10) = '00:00:' + CAST(@waitIntervalInSeconds as VARCHAR(5));
 
-SELECT	
-		TableName = 'Stage.FactAccountBillingType'
-		, Count_Rows =  COUNT(*) 
+WHILE EXISTS(SELECT * FROM Metric.Run WHERE EndDT IS NULL AND RunId = @runId)
+BEGIN
 
-	FROM Stage.FactAccountBillingType	with(NOLOCK)
+	INSERT INTO Metric.TableRowCount
+			(
+			TableName
+			, RunId
+			, Count_Rows
+			, DateTime
+			)
+
+	SELECT	
+			TableName = 'dbo.FactAccountBillingType'
+			, @runId as RunId
+			, Count_Rows =  COUNT(*)
+			, DateTime = GETDATE()
+
+		FROM dbo.FactAccountBillingType	with(NOLOCK);
 
 
-INSERT INTO Metric.TableRowCount
-		(
-		TableName
-		, Count_Rows
-		)
+WAITFOR DELAY @waitTimeInSecondsFormatted
 
-SELECT	
-		TableName = 'dbo.FactAccountBillingType'
-		, Count_Rows =  COUNT(*) 
+IF DATEDIFF(SECOND, @startDateTime, GETDATE()) > @pollForThisManySeconds
+BREAK;
 
-	FROM dbo.FactAccountBillingType	with(NOLOCK)
+END
 
 END
