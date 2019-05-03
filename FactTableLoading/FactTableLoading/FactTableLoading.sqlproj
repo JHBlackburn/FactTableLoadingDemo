@@ -65,8 +65,8 @@
     <Folder Include="Procs" />
     <Folder Include="Procs\Stage" />
     <Folder Include="Tables\Metric" />
-    <Folder Include="Procs\Metric" />
     <Folder Include="Procs\StartUp" />
+    <Folder Include="Procs\Metric" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\dbo\DimDate.sql" />
@@ -81,8 +81,10 @@
     <Build Include="Procs\Stage\uspFactAccountBillingType.sql" />
     <Build Include="Schemas\StartUp.sql" />
     <Build Include="Tables\Metric\TableRowCount.sql" />
-    <Build Include="Procs\Metric\uspPollRowCount_FactAccountBillingType.sql" />
-    <Build Include="Procs\Metric\uspInsertNewRun.sql" />
     <Build Include="Tables\Metric\Run.sql" />
+    <Build Include="Procs\Metric\uspGetRunRowVelocity.sql" />
+    <Build Include="Procs\Metric\uspGetTableRowCountDataByRunId.sql" />
+    <Build Include="Procs\Metric\uspInsertNewRun.sql" />
+    <Build Include="Procs\Metric\uspPollRowCount_FactAccountBillingType.sql" />
   </ItemGroup>
 </Project>

@@ -6,8 +6,8 @@ DECLARE @billingTypeId int;
 DECLARE @stringStartDateId varchar(8);
 DECLARE @stringEndDateId varchar(8);
 DECLARE @msg as Varchar(1000);
-DECLARE @maxAccountLifeinDays int = 1000;
-DECLARE @numberOfAccounts int = 1000000;
+DECLARE @maxAccountLifeinDays int = 10000;
+DECLARE @numberOfAccounts int = 10000;
 
 TRUNCATE TABLE OLTP.AccountBillingType
 
@@ -24,7 +24,7 @@ While @accountId <= @numberOfAccounts
 		, EndDate
 		, BillingTypeName)
 		SELECT 
-		AccountNumber = 'Account#' + CAST(@accountId as Varchar(5))
+		AccountNumber = 'Account#' + CAST(@accountId as Varchar(100))
 		, @startDate
 		, @endDate
 		, BillingTypeId = 'BillingType-' + CAST(@billingTypeID as Varchar(5))
@@ -38,7 +38,7 @@ SELECT * FROM OLTP.AccountBillingType
 
 -- populating dimensions
 ------------------------------------------------------
---TRUNCATE TABLE dbo.DimBillingType
+TRUNCATE TABLE dbo.DimBillingType
 
 MERGE dbo.DimBillingType AS T  
     USING (SELECT DISTINCT 
@@ -68,6 +68,7 @@ WHEN NOT MATCHED THEN
 DECLARE @theDate date = @minStartDate;
 DECLARE @maxEndDate as Date = (SELECT MAX(EndDate) FROM OLTP.AccountBillingType)
 
+
 TRUNCATE TABLE dbo.DimDate
 
 WHILE @theDate <= @maxEndDate
@@ -76,9 +77,10 @@ BEGIN
 		([DateID], [Date], [Year], [Month], [Day])
 		Values ( CONVERT(CHAR(8),   @theDate, 112)
 				, @theDate
-				, DATEPART(YEAR, @startDate)
-				, DATEPART(MONTH, @startDate)
-				, DATEPART(DAY, @startDate));
+				, DATEPART(YEAR, @theDate)
+				, DATEPART(MONTH, @theDate)
+				, DATEPART(DAY, @theDate));
 
 	SET @theDate = DateAdd(DAY, 1, @theDate);	
 END;	
+

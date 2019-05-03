@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{7DA7DD22-D181-4116-867C-970EE97F1459}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{408CE809-58F6-4C26-B32B-7BC2EECF859B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -199,6 +199,7 @@
               description="OLE DB Destination"
               name="Insert To FACT Table"
               usesDispositions="true"
+              validateExternalMetadata="False"
               version="4">
               <properties>
                 <property
@@ -426,16 +427,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="184,42"
+          Id="Package\FactAccountBillingType\Insert To FACT Table"
+          TopLeft="506,219" />
+        <NodeLayout
           Size="183,42"
           Id="Package\FactAccountBillingType\Generate Stage Data"
           TopLeft="503,72" />
-        <NodeLayout
-          Size="184,42"
-          Id="Package\FactAccountBillingType\Insert To FACT Table"
-          TopLeft="505,219" />
         <EdgeLayout
           Id="Package\FactAccountBillingType.Paths[OLE DB Source Output]"
-          TopLeft="595.75,114">
+          TopLeft="596.25,114">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
