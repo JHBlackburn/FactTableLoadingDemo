@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [OLTP] (Schema)
+       [Stage] (Schema)
+       [OLTP].[AccountBillingType] (Table)
+       [Stage].[FactAccountBillingType] (Table)
+       [dbo].[DimAccount] (Table)
+       [dbo].[DimBillingType] (Table)
+       [dbo].[DimDate] (Table)
+       [dbo].[FactAccountBillingType] (Table)
+
+** Supporting actions
